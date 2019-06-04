@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors } from '../utils';
 
 const isRankOdd = rank => rank % 2 !== 0;
 
-const Team = ({ index, team }) => {
+const Team = ({ handleTeamPress, index, team }) => {
   if (index === 0) {
     team.rank = '🥇';
   } else if (index === 1) {
@@ -15,28 +15,30 @@ const Team = ({ index, team }) => {
     team.rank = team.rank + '.';
   }
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          backgroundColor: isRankOdd(index)
-            ? `${colors.white}`
-            : `${colors.primaryLight}`
-        }
-      ]}
-    >
-      <View style={styles.rank}>
-        <Text style={styles.rankText}>{team.rank && team.rank}</Text>
+    <TouchableOpacity onPress={handleTeamPress}>
+      <View
+        style={[
+          styles.container,
+          {
+            backgroundColor: isRankOdd(index)
+              ? `${colors.white}`
+              : `${colors.primaryLight}`
+          }
+        ]}
+      >
+        <View style={styles.rank}>
+          <Text style={styles.rankText}>{team.rank && team.rank}</Text>
+        </View>
+        <View style={styles.teamName}>
+          <Text style={styles.teamNameText}>{team.teamName}</Text>
+        </View>
+        <View style={styles.averageScore}>
+          <Text style={styles.averageScoreText}>
+            {Math.ceil(team.averageScore)}
+          </Text>
+        </View>
       </View>
-      <View style={styles.teamName}>
-        <Text style={styles.teamNameText}>{team.teamName}</Text>
-      </View>
-      <View style={styles.averageScore}>
-        <Text style={styles.averageScoreText}>
-          {Math.ceil(team.averageScore)}
-        </Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

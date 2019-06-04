@@ -19,7 +19,15 @@ class TeamsScreen extends Component {
           <FlatList
             data={teams}
             renderItem={({ item, index }) => {
-              return <Team team={{ ...item, rank: index + 1 }} index={index} />;
+              return (
+                <Team
+                  team={{ ...item, rank: index + 1 }}
+                  index={index}
+                  handleTeamPress={() =>
+                    this.props.navigation.navigate('TeamCard', { item })
+                  }
+                />
+              );
             }}
             keyExtractor={item => item.teamId.toString()}
           />

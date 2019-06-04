@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchTeams } from '../store/actions/index';
+import Team from '../components/Team';
 
 class TeamsScreen extends Component {
   componentDidMount() {
@@ -11,9 +12,10 @@ class TeamsScreen extends Component {
     const { teams } = this.props;
     return (
       <View>
-        <Text>Teams Here</Text>
         {teams &&
-          teams.map(team => <Text key={team.teamId}>{team.teamName}</Text>)}
+          teams.map((team, i) => (
+            <Team team={{ ...team, rank: i + 1 }} key={team.teamId} index={i} />
+          ))}
       </View>
     );
   }

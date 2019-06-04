@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { FlatList, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchTeams } from '../store/actions/index';
 import Team from '../components/Team';
 
 class TeamsScreen extends Component {
   componentDidMount() {
-    if (!this.props.teams.length) this.props.fetchTeams();
+    const { fetchTeams, teams } = this.props;
+    if (!teams.length) fetchTeams();
   }
   render() {
     const { teams } = this.props;
     return (
-      <View>
-        {teams &&
-          teams.map((team, i) => (
-            <Team team={{ ...team, rank: i + 1 }} key={team.teamId} index={i} />
-          ))}
-      </View>
+      <React.Fragment>
+        {!teams.length ? (
+          <ActivityIndicator />
+        ) : (
+          <FlatList
+            data={teams}
+            renderItem={({ item, index }) => {
+              return <Team team={{ ...item, rank: index + 1 }} index={index} />;
+            }}
+            keyExtractor={item => item.teamId.toString()}
+          />
+        )}
+      </React.Fragment>
     );
   }
 }
-
 const mapStateToProps = state => {
   return {
     teams: state.teams.teams,

@@ -30,11 +30,15 @@ const Team = ({ handleTeamPress, index, team }) => {
           <Text style={styles.rankText}>{team.rank && team.rank}</Text>
         </View>
         <View style={styles.teamName}>
-          <Text style={styles.teamNameText}>{team.teamName}</Text>
+          <Text style={styles.teamNameText}>
+            {team.team_name.length > 20
+              ? team.team_name.slice(0, 20) + '...'
+              : team.team_name}
+          </Text>
         </View>
         <View style={styles.averageScore}>
           <Text style={styles.averageScoreText}>
-            {Math.ceil(team.averageScore)}
+            {Math.ceil(team.average_score)}
           </Text>
         </View>
       </View>

@@ -29,7 +29,7 @@ class TeamsScreen extends Component {
                 />
               );
             }}
-            keyExtractor={item => item.teamId.toString()}
+            keyExtractor={item => item.id.toString()}
           />
         )}
       </React.Fragment>

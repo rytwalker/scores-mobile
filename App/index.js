@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
 import TeamsScreen from './screens/TeamsScreen';
 import Navigation from './navigation/index';
+import { colors } from './utils';
 
 export default class App extends Component {
   render() {
@@ -18,6 +19,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF'
+    backgroundColor: `${colors.white}`
   }
 });

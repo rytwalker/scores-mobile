@@ -20,7 +20,7 @@ import {
 export const fetchTeams = () => dispatch => {
   dispatch({ type: FETCHING_TEAMS });
   axios
-    .get('https://suzies-scores.herokuapp.com/api/teams')
+    .get('https://suzies-quiz-scores.herokuapp.com/api/leaderboard')
     .then(res => {
       dispatch({ type: FETCHING_TEAMS_SUCCESS, payload: res.data });
     })

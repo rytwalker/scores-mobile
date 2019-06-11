@@ -87,22 +87,34 @@ const TeamCardScreen = props => {
           <Text style={styles.placesText}>{item.second_place} 🥈</Text>
           <Text style={styles.placesText}>{item.third_place} 🥉</Text>
         </View>
-        <Text style={styles.statsText}>
-          <Text style={styles.statsNumberText}>
-            {(Math.round(item.average_score * 10) / 10).toFixed(1)}
-          </Text>{' '}
-          Average Score
-        </Text>
-        <Text style={styles.statsText}>
-          <Text style={styles.statsNumberText}>
-            {(Math.round(item.average_percent_correct * 10) / 10).toFixed(1)}
-          </Text>{' '}
-          Average Number Correct
-        </Text>
-        <Text style={styles.statsText}>
-          <Text style={styles.statsNumberText}>{item.games_played}</Text>{' '}
-          Quizzes Played
-        </Text>
+        <Text style={styles.headingText}>Averages</Text>
+        <View style={styles.stats}>
+          <Text style={styles.statsText}>
+            <Text style={styles.statsNumberText}>
+              {Math.round(item.average_score)}
+            </Text>{' '}
+            Points
+          </Text>
+          <Text>🎰</Text>
+        </View>
+
+        <View style={styles.stats}>
+          <Text style={styles.statsText}>
+            <Text style={styles.statsNumberText}>
+              {(Math.round(item.average_percent_correct * 10) / 10).toFixed(1)}%
+            </Text>{' '}
+            Correct
+          </Text>
+          <Text>💯</Text>
+        </View>
+
+        <View style={styles.stats}>
+          <Text style={styles.statsText}>
+            <Text style={styles.statsNumberText}>{item.games_played}</Text>{' '}
+            Quizzes Played
+          </Text>
+          <Text>🎟</Text>
+        </View>
       </View>
       <View>
         <Text style={styles.headingText}>Personal Bests</Text>
@@ -133,12 +145,22 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: `${colors.primaryDark}`
   },
+  stats: {
+    backgroundColor: `${colors.primaryDark}`,
+    marginBottom: 20,
+    borderRadius: 4,
+    padding: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
   statsText: {
-    fontSize: 20,
-    fontWeight: '700'
+    fontSize: 14,
+    fontWeight: '700',
+    color: `${colors.blackFaded}`
   },
   statsNumberText: {
-    color: `${colors.primaryDark}`
+    fontSize: 20,
+    color: `${colors.white}`
   }
 });
 export default TeamCardScreen;

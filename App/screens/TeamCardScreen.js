@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native';
 import PureChart from 'react-native-pure-chart';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../utils';
 
 getLatestScores = scores => {
@@ -70,7 +71,9 @@ const TeamCardScreen = props => {
             </Text>{' '}
             points
           </Text>
-          <Text>🎰</Text>
+          <Text>
+            <Icon size={35} name="ios-trending-up" color={colors.blackFaded} />
+          </Text>
         </View>
 
         <View style={styles.stats}>
@@ -80,7 +83,9 @@ const TeamCardScreen = props => {
             </Text>{' '}
             correct
           </Text>
-          <Text>💯</Text>
+          <Text>
+            <Icon size={35} name="ios-checkmark" color={colors.blackFaded} />
+          </Text>
         </View>
 
         <View style={styles.stats}>
@@ -88,7 +93,10 @@ const TeamCardScreen = props => {
             <Text style={styles.statsNumberText}>{item.games_played}</Text>{' '}
             quizzes played
           </Text>
-          <Text>🎟</Text>
+          <Text>
+            {' '}
+            <Icon size={35} name="ios-play" color={colors.blackFaded} />
+          </Text>
         </View>
       </View>
       <View>

@@ -6,6 +6,7 @@ export const red = '#DC000B';
 export const black = '#2F2E2E';
 export const blackFaded = '#555';
 export const white = '#fafafa';
+export const lightGrey = '#f0f0f0';
 
 export default {
   primary,
@@ -15,5 +16,6 @@ export default {
   red,
   black,
   blackFaded,
-  white
+  white,
+  lightGrey
 };

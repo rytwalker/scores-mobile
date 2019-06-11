@@ -17,7 +17,7 @@ const LeaderboardStack = createStackNavigator({
   TeamCard: {
     screen: TeamCardScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: navigation.getParam('item', {}).teamName
+      headerTitle: navigation.getParam('item', {}).team_name
     })
   }
 });

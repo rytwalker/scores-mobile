@@ -115,9 +115,10 @@ const TeamCardScreen = props => {
         <Text style={styles.headingText}>Personal Bests:</Text>
         <View style={styles.stats}>
           <Text style={styles.statsText}>
-            <Text style={styles.statsNumberText}>{item.high_score}</Text> 🏅
+            <Text style={styles.statsNumberText}>{item.high_score} </Text>
             High Score
           </Text>
+          <Text>🏅</Text>
         </View>
       </View>
     </ScrollView>
